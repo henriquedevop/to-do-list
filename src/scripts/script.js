@@ -37,7 +37,9 @@ function createTaskElement(task, index) {
         li.classList.add('item-check')
     }
 
-    li.textContent = task.text;
+    const taskText = document.createElement('span')
+    taskText.textContent = task.text;
+    li.appendChild(taskText) 
 
     const btnCheck = createCheckButton(task, index)
     li.appendChild(btnCheck)

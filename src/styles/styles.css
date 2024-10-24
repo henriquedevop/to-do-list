@@ -97,6 +97,13 @@ body {
     padding-left: 1rem;
 }
 
+.item-task-li span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
 .btn-delete {
     color: #4000ff;
     background-color: #fff;
@@ -153,4 +160,22 @@ body {
 #invalidContainer p {
     color: #D4D0F5;
     font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .glass-container {
+        width: 400px;
+    }
+}
+
+@media (max-width: 420px) {
+    .glass-container {
+        width: 350px;
+    }
+}
+
+@media (max-width: 320px) {
+    .glass-container {
+        width: 320px;
+    }
 }
