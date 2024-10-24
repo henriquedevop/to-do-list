@@ -24,6 +24,7 @@ function renderTasks() {
 function createTaskElement(task, index) {
     const li = document.createElement('li')
     li.textContent = task 
+    li.classList.add('item-task-li')
 
     const btnDelete = createDeleteButton(index)
     li.appendChild(btnDelete)
@@ -34,6 +35,7 @@ function createTaskElement(task, index) {
 function createDeleteButton(index) {
     const button = document.createElement('button')
     button.textContent = 'Excluir'
+    button.classList.add('btn-delete')
 
     button.addEventListener('click', () => deleteTask(index))
     
