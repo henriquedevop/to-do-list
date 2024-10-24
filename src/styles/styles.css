@@ -8,6 +8,8 @@ body {
     height: 100vh;
     width: 100%;
     background: linear-gradient(355deg, rgba(102,146,253,1) 0%, rgba(64,0,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +52,7 @@ body {
     outline: none;
     width: 100%;
     position: relative;
+    font-size: 1rem;
 }
 
 #addTaskBtn {
@@ -99,11 +102,34 @@ body {
     padding: 1rem;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 0px;
     transition: 0.5s;
 }
 
 .btn-delete:hover {
     color: #fff;
+    background-color: #ff0831;
+}
+
+.btn-check {
+    color: #00ff3c;
     background-color: #4000ff;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px 0px 0px 20px;
+    transition: 0.5s;
+    margin-left: auto;
+}
+
+.btn-check:hover {
+    background-color: #00ff3c;
+    color: #4000ff;
+}
+
+.item-check {
+    color: #35e95f;
+    background-color: rgb(242, 242, 242, 0.2);
 }

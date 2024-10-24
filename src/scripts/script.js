@@ -12,6 +12,13 @@ function deleteTask(index) {
     saveLocalStorage()
 }
 
+function checkTask(index) {
+    arrayTasksList[index].completed = !arrayTasksList[index].completed;
+
+    renderTasks()
+    saveLocalStorage()
+}
+
 function renderTasks() {
     elementsList.innerHTML = ''
 
@@ -23,8 +30,16 @@ function renderTasks() {
 
 function createTaskElement(task, index) {
     const li = document.createElement('li')
-    li.textContent = task 
     li.classList.add('item-task-li')
+    
+    if(task.completed) {
+        li.classList.add('item-check')
+    }
+
+    li.textContent = task.text;
+
+    const btnCheck = createCheckButton(task, index)
+    li.appendChild(btnCheck)
 
     const btnDelete = createDeleteButton(index)
     li.appendChild(btnDelete)
@@ -42,6 +57,20 @@ function createDeleteButton(index) {
     return button
 }
 
+function createCheckButton(task, index) {
+    let button = document.createElement('button')
+    button.classList.add('btn-check')
+    if (task.completed === false) {
+        button.textContent = 'Concluir'
+    } else {
+        button.textContent = 'Desfazer'
+    }
+
+    button.addEventListener('click', () => checkTask(index))
+
+    return button
+}
+
 function saveLocalStorage() {
     localStorage.setItem('@tasksList', JSON.stringify(arrayTasksList))
 }
@@ -56,7 +85,11 @@ addTaskBtn.addEventListener('click', () => {
         return false
     } 
 
-    const newTask = inputTask.value.trim()
+    const newTask = {
+        text: inputTask.value.trim(),
+        completed: false
+    }
+
     arrayTasksList.push(newTask)
     inputTask.value = ''
     renderTasks()
