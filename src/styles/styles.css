@@ -16,6 +16,10 @@ body {
     font-family: "Poppins", serif;
 }
 
+.wrapper {
+    text-align: center;
+}
+
 .tittle {
     color: #fff;
 }
@@ -28,7 +32,6 @@ body {
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     width: 500px;
-
     padding: 1rem;
 }
 
@@ -132,4 +135,22 @@ body {
 .item-check {
     color: #35e95f;
     background-color: rgb(242, 242, 242, 0.2);
+}
+
+.invalid-message {
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    margin-top: 1rem;
+}
+
+#invalidContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#invalidContainer p {
+    color: #D4D0F5;
+    font-size: 1.2rem;
 }

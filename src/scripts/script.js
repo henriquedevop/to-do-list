@@ -1,6 +1,7 @@
 const inputTask = document.querySelector('#inputTask')
 const addTaskBtn = document.querySelector('#addTaskBtn')
 const elementsList = document.querySelector('#elementsList')
+const invalidContainer = document.querySelector('#invalidContainer')
 
 let arrayTasksList = JSON.parse(localStorage.getItem('@tasksList')) || []
 
@@ -75,15 +76,32 @@ function saveLocalStorage() {
     localStorage.setItem('@tasksList', JSON.stringify(arrayTasksList))
 }
 
+function invalidInputMessage() {
+    const oldMessage = document.querySelector('.invalid-message')
+    if(oldMessage) {
+        oldMessage.remove()
+    }
+    
+    const message = document.createElement('p')
+    message.textContent = 'Insira alguma tarefa!'
+    message.classList.add('invalid-message')
+    invalidContainer.appendChild(message)
+}
+
 function isInputValid() {
     return inputTask.value.trim() !== ''
 }
 
 addTaskBtn.addEventListener('click', () => {
     if(!isInputValid()) {
-        alert("Insira algo")
+        invalidInputMessage()
         return false
     } 
+
+    const oldMessage = document.querySelector('.invalid-message')
+    if (oldMessage) {
+        oldMessage.remove()
+    }
 
     const newTask = {
         text: inputTask.value.trim(),
