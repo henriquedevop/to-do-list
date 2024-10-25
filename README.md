@@ -2,7 +2,7 @@
 
 Um aplicativo simples de lista de tarefas, onde você pode adicionar, concluir e excluir tarefas. O projeto é construído utilizando HTML, CSS e JavaScript, e armazena as tarefas no armazenamento local do navegador.
 
-![preview do projeto](/src/previewToDo.png)
+![preview do projeto](/src/previewToDoList.png)
 
 ## Funcionalidades
 
