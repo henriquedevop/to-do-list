@@ -78,6 +78,10 @@ function saveLocalStorage() {
     localStorage.setItem('@tasksList', JSON.stringify(arrayTasksList))
 }
 
+function verifyInput() {
+    return arrayTasksList.some((task) => task.text === inputTask.value.trim());
+}
+
 function invalidInputMessage() {
     const oldMessage = document.querySelector('.invalid-message')
     if(oldMessage) {
@@ -85,7 +89,7 @@ function invalidInputMessage() {
     }
     
     const message = document.createElement('p')
-    message.textContent = 'Insira alguma tarefa!'
+    message.textContent = 'Tarefa vazia ou duplicada!'
     message.classList.add('invalid-message')
     invalidContainer.appendChild(message)
 }
@@ -95,7 +99,7 @@ function isInputValid() {
 }
 
 addTaskBtn.addEventListener('click', () => {
-    if(!isInputValid()) {
+    if(!isInputValid() || verifyInput()) {
         invalidInputMessage()
         return false
     } 
